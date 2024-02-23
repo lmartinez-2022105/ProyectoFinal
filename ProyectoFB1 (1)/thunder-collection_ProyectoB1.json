@@ -1,0 +1,269 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ProyectoB1",
+    "dateExported": "2024-02-23T23:20:07.239Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "160c8bdd-05d2-4d80-ab1f-9bcd63386d62",
+            "name": "PublicRoutes",
+            "containerId": "",
+            "created": "2024-02-23T20:31:28.480Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "d012ca0e-ac99-4c16-9727-a956352c230b",
+            "name": "ClientRoutes",
+            "containerId": "",
+            "created": "2024-02-23T20:31:28.481Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "6de33040-4a15-44c6-9281-818ed9386110",
+            "name": "AdminRoutes",
+            "containerId": "",
+            "created": "2024-02-23T20:31:28.482Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "eb686ae0-3d36-48c6-ae65-86aae1f50bf7",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "6de33040-4a15-44c6-9281-818ed9386110",
+            "name": "UserTest",
+            "url": "/user/test",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-23T20:31:28.480Z",
+            "modified": "2024-02-23T20:31:28.480Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "57350a6f-7f13-4b4b-8efb-d00c12b6d0b0",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "160c8bdd-05d2-4d80-ab1f-9bcd63386d62",
+            "name": "Register",
+            "url": "/user/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-23T20:31:28.482Z",
+            "modified": "2024-02-23T21:33:26.443Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Marta"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Marroquin"
+                    },
+                    {
+                        "name": "username",
+                        "value": "Mardead"
+                    },
+                    {
+                        "name": "password",
+                        "value": "12345678"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "12345678"
+                    },
+                    {
+                        "name": "country",
+                        "value": "Guatemala"
+                    },
+                    {
+                        "name": "address",
+                        "value": "12 calle zona 1 "
+                    },
+                    {
+                        "name": "role",
+                        "value": "ADMIN",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "592a0d0f-9464-462a-9825-ca710754083b",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "160c8bdd-05d2-4d80-ab1f-9bcd63386d62",
+            "name": "login",
+            "url": "/user/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-23T20:31:28.483Z",
+            "modified": "2024-02-23T22:55:45.925Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "josejose",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "abcd1234"
+                    },
+                    {
+                        "name": "email",
+                        "value": "josejose@gmail.com"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "b819bbdd-7afd-4fa3-a964-e3ef03fad4e7",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "d012ca0e-ac99-4c16-9727-a956352c230b",
+            "name": "UpdateUser",
+            "url": "/user/update",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-23T20:31:28.484Z",
+            "modified": "2024-02-23T23:14:11.440Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQ5MjA0YmY4YWEwY2M3MzFjOTQxZjAiLCJ1c2VybmFtZSI6Impvc2Vqb3NlIiwibmFtZSI6Ikpvc8OpIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzA4NzMwMDM3LCJleHAiOjE3MDg3NDQ0Mzd9.vnuibbPabvHjAwqgCB3vUuBOjBrO7gjanAb2SGjyEbo"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "surname",
+                        "value": "Se"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "e04f74aa-62aa-4d66-b4df-7176a5296490",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "d012ca0e-ac99-4c16-9727-a956352c230b",
+            "name": "deleteUser",
+            "url": "/user/delete/65d849445e273318e8160f12",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-23T20:31:28.485Z",
+            "modified": "2024-02-23T20:31:28.485Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQ4NDk0NDVlMjczMzE4ZTgxNjBmMTIiLCJ1c2VybmFtZSI6Ikx1TWEiLCJuYW1lIjoiTHVpcyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwODY3MzU3NCwiZXhwIjoxNzA4Njg3OTc0fQ.kN92uPV0oBwHKLROt7GFTDppG4F8RD3bM96rl0i_LnU"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "428811d6-8d2d-479e-868a-1b580ffc89ca",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "6de33040-4a15-44c6-9281-818ed9386110",
+            "name": "categoryTest",
+            "url": "/category/test",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-02-23T20:31:28.486Z",
+            "modified": "2024-02-23T20:31:28.486Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "86a183e1-7a2f-4ad6-9586-e62c21c70712",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "6de33040-4a15-44c6-9281-818ed9386110",
+            "name": "addCategory",
+            "url": "/category/add",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-02-23T20:31:28.487Z",
+            "modified": "2024-02-23T20:47:27.303Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQ5MDBlOTY3NThhMTFjNjg2ZmFiYjIiLCJ1c2VybmFtZSI6Ikx1TWEiLCJuYW1lIjoiTHVjYXMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDg3MjAzNjQsImV4cCI6MTcwODczNDc2NH0.GuNkOVH98qcBBCbVIRFcEnH_Zqhci2fuAPduoNqEKos"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Garden"
+                    },
+                    {
+                        "name": "description",
+                        "value": "All accesories for your garden"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "691f0d26-0650-4420-8956-ca312274eba5",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "6de33040-4a15-44c6-9281-818ed9386110",
+            "name": "updateCategory",
+            "url": "/category/update/65d8559e6d0f7cd025e4caa6",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2024-02-23T20:31:28.488Z",
+            "modified": "2024-02-23T20:31:28.488Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Garage"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "271bb2a5-50f2-4583-8707-2df602e039be",
+            "colId": "2fc4f960-81f0-417c-8d75-7dd7a6537335",
+            "containerId": "6de33040-4a15-44c6-9281-818ed9386110",
+            "name": "deleteCategory",
+            "url": "/category/delete/65d859c80bd358e8a12eccdf",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-02-23T20:31:28.489Z",
+            "modified": "2024-02-23T20:31:28.489Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:2666"
+        }
+    }
+}
