@@ -3,10 +3,12 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { config } from 'dotenv'
-import User from '../src/user/user.model.js'
 import userRoutes from '../src/user/user.routes.js'
 import categoryRoutes from '../src/category/category.routes.js'
-
+import productRoutes from '../src/product/product.routes.js'
+import shoppingCarRoutes from '../src/shopCar/shopCar.routes.js'
+import purchaseRouter from '../src/purchase/purchase.routes.js'
+ 
 //Configuraciones
 const app = express() 
 config()
@@ -24,33 +26,13 @@ app.use(morgan('dev'))
 //Rutas
 app.use("/user", userRoutes)
 app.use('/category', categoryRoutes)
+app.use('/product', productRoutes)
+app.use('/shop', shoppingCarRoutes)
+app.use('/buy', purchaseRouter)
 
-const userDefault = async()=>{
-    try {
-        const existUser = await User.findOne()
-        if(!existUser){
-            const newUser = new User({
-                name:"José",
-                surname:"Lutin",
-                username: "josejose",
-                password:"abcd1234",
-                address: "13 calle zona 3 Guatemala City",
-                country: "Ugand",
-                phone: "32451689",
-                role: "ADMIN" 
-            })
-            await newUser.save()
-            console.log('User default created', newUser)
-        }
-    } catch (error) {
-        console.error(error)
-        return error
-    }
-}
 
 //Levantar el server
 export const InitServer = ()=>{
-    userDefault()
     app.listen(port)
     console.log(`Server HTTPS is running in port ${port}`)
 }

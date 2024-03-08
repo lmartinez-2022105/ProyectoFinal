@@ -36,13 +36,19 @@ const userSchema = Schema({
         type: Number,
         required: true
     },
+    NIT:{
+        type:String,
+        default: "CF"
+    },
     role: {
         type: String,
         enum: ['CLIENT', 'ADMIN'],
         default: 'CLIENT',
-        required: true
+        required: true,
+        uppercase: true
     }
-
-})
+},
+    {versionKey:false}
+)
 
 export default model('user', userSchema)

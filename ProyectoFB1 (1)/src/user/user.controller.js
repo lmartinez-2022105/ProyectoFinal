@@ -9,12 +9,24 @@ export const test = (req, res) => {
 export const register = async (req, res) => {
     try {
         let data = req.body
+        if(
+            !data.email ||
+            !data.username || 
+            !data.password || 
+            !data.name || 
+            !data.surname || 
+            !data.address || 
+            !data.country || 
+            !data.phone 
+        ) return res.status(400).send({message: 'Enter all fields to register'})
         data.password = await aencrypt(data.password)
         let user = new User(data)
         await user.save()
         return res.send({ message: 'Registered successfully' })
     } catch (error) {
         console.error(error)
+        if(error.keyValue.username) return res.status(400).send({message: `Username ${error.keyValue.username} is already taken`})
+        if(error.keyValue.email) return res.status(400).send({message: `Email ${error.keyValue.email} is already in use`})
         return res.status(500).send({ message: 'Error registering user', error })
 
     }
@@ -56,11 +68,10 @@ export const login = async (req, res) => {
 
 export const update = async (req, res) => {
     try {
-        // let { id } = req.params
         let data = req.body
-        let user = req.user
+        let {id} = req.user
         let updatedUser = await User.findOneAndUpdate(
-            { _id: user._id },
+            { _id: id },
             data,
             { new: true }
         )
@@ -69,6 +80,7 @@ export const update = async (req, res) => {
     } catch (error) {
         console.error(error)
         if(error.keyValue.username) return res.status(400).send({message: `Username ${error.keyValue.username} is already taken`})
+        if(error.keyValue.email) return res.status(400).send({message: `Email ${error.keyValue.email} is already in use`})
         return res.status(500).send({ message: 'Error updating account' })
     }
 }
@@ -76,7 +88,10 @@ export const update = async (req, res) => {
 export const updateClient = async(req, res)=>{
     try {
         let {id} = req.params
+        let {_id} = req.user
         let data = req.body
+        let cliente = await User.findOne({_id:id})
+        if(cliente.role ==='ADMIN' && cliente._id.toString() !== _id.toString()) return res.send({message:'You can not update a other ADMIN'})
         let updatedUser = await User.findOneAndUpdate(
             {_id: id},
             data,
@@ -86,7 +101,8 @@ export const updateClient = async(req, res)=>{
         return res.send({ message: 'Updated user', updatedUser })
     } catch (error) {
         console.error(error)
-        if(error.keyValue.username) return res.status(400).send({message: `Username ${error.keyValue.username} is already taken`})
+        if(err.keyValue.username) return res.status(400).send({message: `Username ${err.keyValue.username} is already taken`})
+        if(err.keyValue.email) return res.status(400).send({message: `Email ${err.keyValue.email} is already in use`})
         return res.status(500).send({ message: 'Error updating account' })
     }
 }
@@ -101,5 +117,16 @@ export const deletUser = async (req, res) => {
     } catch (error) {
         console.error(error)
         return res.status(500).send({ message: 'Error deleting account', error })
+    }
+}
+
+
+export const displayClient = async (req, res) =>{
+    try {
+        let client = await User.find({role: 'CLIENT'})
+        return res.send(client)
+    } catch (error) {
+        console.error(error)
+        return res.status(500).send({ message: 'Error displaying clients' })
     }
 }
