@@ -10,7 +10,11 @@ export const addPurchase = async (req, res) => {
     try {
         let { _id } = req.user // Obtener el ID del usuario
         let cart = await ShopCar.findOne({ user: _id }).populate('products.product')
-        if (!cart) {
+        /* let product = await Product.find({id: cart.products.product})
+        if(cart.products.products.quantity > product.stock){
+            return res.status(404).send({message: ''})
+        } */
+        if(!cart) {
             return res.status(404).send({ message: 'Shopping cart not found' })
         }
         let purchaseItems = cart.products.map(item => ({

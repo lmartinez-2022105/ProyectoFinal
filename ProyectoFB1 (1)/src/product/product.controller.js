@@ -63,7 +63,7 @@ export const search = async (req, res) => {
             return res.send(products)
         } 
         if (!category) {
-            const product = await Product.find({ name: name }).populate('category',['name','description'])
+            const product = await Product.find({ name: {$regex:new RegExp(name, 'i')} }).populate('category',['name','description'])
             return res.send(product)
         }else{
             products = await Product.find({ name:name,category: category }).populate('category',['name','description'])
@@ -73,5 +73,16 @@ export const search = async (req, res) => {
     } catch (error) {
         console.error(error)
         res.status(500).send({ message: 'Error searching products' })
+    }
+}
+
+export const soldOut = async(req, res) => {
+    try {
+        let stock = 0
+        let products = await Product.find({ stock: stock })
+        return res.send(products)
+    } catch (error) {
+        console.error(error)
+        return res.status(500).send({ message: 'Error displaying sold out products' })
     }
 }

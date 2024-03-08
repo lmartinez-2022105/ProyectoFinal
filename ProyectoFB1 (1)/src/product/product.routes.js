@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { add, deleteProduct, displayProducts, search, update } from "./product.controller.js"
+import { add, deleteProduct, displayProducts, search, soldOut, update } from "./product.controller.js"
 import { isAdmin, validateJwt } from "../middlewares/validate-jwt.js"
 
 const api = Router()
@@ -11,6 +11,7 @@ api.delete('/delete:/id',[validateJwt, isAdmin],deleteProduct)
 
 //Client Routes
 api.post('/display',[validateJwt],displayProducts)
-api.post('/search',[validateJwt],search)
+api.post('/search',/*[validateJwt],*/search)
+api.get('/soldOut',[validateJwt], soldOut)
 
 export default api
